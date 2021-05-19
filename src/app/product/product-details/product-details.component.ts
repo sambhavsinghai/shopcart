@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
           ...(document.payload.doc.data() as {}),
         } as Product;
       });
-
+      debugger;
       console.log(this.products);
     });
   }
