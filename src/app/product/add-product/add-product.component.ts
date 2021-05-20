@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/app/shared/product.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -12,6 +13,8 @@ export class AddProductComponent implements OnInit {
   @ViewChild('priceInput') priceInputRef: ElementRef;
   @ViewChild('stockInput') stockInputRef: ElementRef;
   @ViewChild('activeInput') activeInputRef: ElementRef;
+  // firstname = new FormControl('');
+
   constructor() {}
 
   ngOnInit(): void {}

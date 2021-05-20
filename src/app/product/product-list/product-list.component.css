@@ -1,0 +1,11 @@
+tr,
+td {
+  font-size: 15px;
+}
+
+th {
+  font-size: 20px;
+}
+table {
+  width: 100%;
+}
