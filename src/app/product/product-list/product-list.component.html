@@ -3,13 +3,14 @@
     type="text"
     matInput
     (keyup)="applyFilter($event)"
-    placeholder="Type And Search Products"
+    placeholder=" Type And Search Products"
     class="search"
   />
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
     showFirstLastButtons
   ></mat-paginator>
+
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -36,7 +37,29 @@
       <td mat-cell *matCellDef="let element">{{ element.active }}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Delete"
+          (click)="editClicked(element)"
+          >edit</mat-icon
+        >{{ "      " }}
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Delete"
+          (click)="deleteClicked(element)"
+          >delete</mat-icon
+        >
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      style="background-color: #b1e3fa; border-top-style: solid"
+    ></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>

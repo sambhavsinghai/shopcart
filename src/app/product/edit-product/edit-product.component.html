@@ -1,1 +1,31 @@
-<p>edit-product works!</p>
+<div class="center">
+  <mat-form-field>
+    <mat-label>Product Name</mat-label>
+    <input matInput [(ngModel)]="newName" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Product Category</mat-label>
+    <input matInput [(ngModel)]="newCategory" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>price</mat-label>
+    <input matInput [(ngModel)]="newPrice" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Stock</mat-label>
+    <input matInput [(ngModel)]="newStock" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Active</mat-label>
+    <mat-select [(ngModel)]="newActive">
+      <mat-option value="true">True</mat-option>
+      <mat-option value="false">False</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="updateProduct()">Update Product</button>
+</div>

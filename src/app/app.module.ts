@@ -16,6 +16,12 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { EditProductComponent } from './product/edit-product/edit-product.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { HeaderComponent } from './header/header.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -40,5 +52,6 @@ import { HeaderComponent } from './header/header.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [EditProductComponent, AddProductComponent],
 })
 export class AppModule {}

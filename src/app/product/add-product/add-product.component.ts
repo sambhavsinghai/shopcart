@@ -1,6 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/product.model';
 import { FormControl } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-add-product',
@@ -8,24 +10,44 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  @ViewChild('nameInput') nameInputRef: ElementRef;
-  @ViewChild('categoryInput') categoryInputRef: ElementRef;
-  @ViewChild('priceInput') priceInputRef: ElementRef;
-  @ViewChild('stockInput') stockInputRef: ElementRef;
-  @ViewChild('activeInput') activeInputRef: ElementRef;
-  // firstname = new FormControl('');
+  newName: string;
+  newCategory: string;
+  newPrice: string;
+  newStock: string;
+  newActive: boolean;
 
-  constructor() {}
+  constructor(
+    public firestore: AngularFirestore,
+    public dialogRef: MatDialogRef<AddProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit(): void {}
-  onAddItem() {
-    const id = 'one';
-    const name = this.nameInputRef.nativeElement.value;
-    const category = this.categoryInputRef.nativeElement.value;
-    const price = this.priceInputRef.nativeElement.value;
-    const stock = this.stockInputRef.nativeElement.value;
-    const active = this.activeInputRef.nativeElement.value;
-    const newProduct = new Product(id, name, category, price, stock, active);
-    console.log(newProduct);
+  addProduct(): void {
+    let prod: Product;
+
+    prod = {
+      id: '' + Math.random().toString(36).substr(2, 9),
+      name: this.newName,
+      category: this.newCategory,
+      price: this.newPrice,
+      stock: this.newStock,
+      active: this.newActive,
+    };
+    console.log(prod);
+
+    this.firestore
+      .collection('product')
+      .doc(prod.id)
+      .set(prod)
+      .then(() => {
+        console.log('Document Added');
+      });
+
+    this.dialogRef.close();
   }
 }

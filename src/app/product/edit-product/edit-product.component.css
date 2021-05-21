@@ -1,0 +1,8 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+mat-form-field {
+  margin: 10px 5px;
+}

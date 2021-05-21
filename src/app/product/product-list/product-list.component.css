@@ -12,11 +12,16 @@ table {
 mat-paginator {
   float: right;
   width: 35%;
-  background-color: #c2ecff;
+  background-color: #d3f1ff;
 }
 .search {
   width: 20%;
   padding: 5px;
   margin-left: 1%;
-  box-shadow: 4px 2px #888888;
+  margin-top: 1%;
+  box-shadow: 2px 2px 2px 2px #888888;
+}
+mat-icon:hover {
+  background-color: rgba(158, 158, 158, 0.2);
+  border-radius: 50%;
 }
