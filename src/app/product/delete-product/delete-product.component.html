@@ -1,0 +1,11 @@
+<div mat-dialog-content class="center">
+  <h1>Delete Product</h1>
+
+  <mat-label
+    >Are you sure you want to Delete <span>{{ data.name }}</span></mat-label
+  >
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancle</button>
+  <button mat-button (click)="deleteProduct()" cdkFocusInitial>Delete</button>
+</div>

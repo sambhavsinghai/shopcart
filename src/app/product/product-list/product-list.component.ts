@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DeleteProductComponent } from '../delete-product/delete-product.component';
 
 @Component({
   selector: 'app-product-list',
@@ -46,21 +47,11 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  deleteClicked(document): void {
-    console.log(document);
-    const result: boolean = confirm('Want to delete?');
-    if (result) {
-      this.firestore
-        .collection('product')
-        .doc(document.id)
-        .delete()
-        .then(() => {
-          console.log('Document successfully deleted!');
-        })
-        .catch((error) => {
-          console.error('Error removing document: ', error);
-        });
-    }
+  deleteClicked(data): void {
+    this.dialog.open(DeleteProductComponent, {
+      width: '350px',
+      data: data,
+    });
   }
 }
 
@@ -72,3 +63,18 @@ export class ProductListComponent implements OnInit {
 //   } as Product;
 // });
 // console.log(this.products);
+
+// console.log(document);
+// const result: boolean = confirm('Want to delete?');
+// if (result) {
+//   this.firestore
+//     .collection('product')
+//     .doc(document.id)
+//     .delete()
+//     .then(() => {
+//       console.log('Document successfully deleted!');
+//     })
+//     .catch((error) => {
+//       console.error('Error removing document: ', error);
+//     });
+// }

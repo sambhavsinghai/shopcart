@@ -1,0 +1,25 @@
+div {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  align-items: center;
+  max-width: 500px;
+  box-shadow: 5px 10px #888888;
+  padding: 50px;
+  margin-top: 35px;
+  font-size: 2rem;
+}
+div > h1 {
+  font-size: 4rem;
+  margin-bottom: 10%;
+  background-color: #e6e6e6;
+  padding: 15px;
+  border-radius: 25px;
+}
+div > p {
+  font-size: 2rem;
+  margin-bottom: 4%;
+  background-color: #e6e6e6;
+  padding: 15px;
+  border-radius: 25px;
+}

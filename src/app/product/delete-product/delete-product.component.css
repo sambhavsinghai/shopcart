@@ -1,0 +1,14 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+button {
+  background-color: rgb(60, 60, 243);
+  color: white;
+}
+span {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
