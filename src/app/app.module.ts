@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Routes, RouterModule } from '@angular/router';
 import { DeleteProductComponent } from './product/delete-product/delete-product.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const appRoutes: Routes = [
   { path: 'product', component: ProductComponent },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),

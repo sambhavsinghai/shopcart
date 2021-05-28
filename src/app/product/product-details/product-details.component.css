@@ -19,7 +19,13 @@ div > h1 {
 div > p {
   font-size: 2rem;
   margin-bottom: 4%;
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
+  margin-right: auto;
+  /* align-self: flex-start; */
   padding: 15px;
   border-radius: 25px;
+}
+
+span {
+  font-weight: 500;
 }

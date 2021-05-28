@@ -3,6 +3,7 @@ import { Product } from 'src/app/shared/product.model';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-product',
@@ -17,6 +18,7 @@ export class AddProductComponent implements OnInit {
   newActive: boolean;
 
   constructor(
+    private snackBar: MatSnackBar,
     public firestore: AngularFirestore,
     public dialogRef: MatDialogRef<AddProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -27,6 +29,7 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   addProduct(): void {
     let prod: Product;
 
@@ -45,6 +48,9 @@ export class AddProductComponent implements OnInit {
       .doc(prod.id)
       .set(prod)
       .then(() => {
+        this.snackBar.open('Product Added', 'Dismiss', {
+          duration: 3000,
+        });
         console.log('Document Added');
       });
 

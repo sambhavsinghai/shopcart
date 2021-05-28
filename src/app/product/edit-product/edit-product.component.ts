@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from 'src/app/shared/product.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-product',
@@ -10,6 +11,7 @@ import { Product } from 'src/app/shared/product.model';
 })
 export class EditProductComponent implements OnInit {
   constructor(
+    private snackBar: MatSnackBar,
     public firestore: AngularFirestore,
     public dialogRef: MatDialogRef<EditProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Product
@@ -41,6 +43,9 @@ export class EditProductComponent implements OnInit {
       .doc(this.data.id)
       .update(prod)
       .then(() => {
+        this.snackBar.open('Product Updated', 'Dismiss', {
+          duration: 3000,
+        });
         console.log(' updated document');
       });
 

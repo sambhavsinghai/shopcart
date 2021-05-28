@@ -13,7 +13,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.prod = {
-      id: this.route.snapshot.params['id'],
+      id: this.route.snapshot.params.id,
       name: this.route.snapshot.queryParams.name,
       category: this.route.snapshot.queryParams.category,
       price: this.route.snapshot.queryParams.price,
